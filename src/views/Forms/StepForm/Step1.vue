@@ -36,9 +36,6 @@ export default {
             }
         }
     },
-    props: {
-        asset_info: Object
-    },
     computed: {
         step(){
             return this.$store.state.form.step;

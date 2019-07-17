@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+    crontab-vue:
+        container_name: crontab-vue
+        build: .
+        restart: unless-stopped
+        network_mode: host
+        command: ["/usr/bin/npm", "run", "serve:no-mock"]
+        logging:
+            options:
+                max-size: "10m"
+                max-file: "10"
+        ulimits:
+            nproc: 65536
+            nofile: 65536
