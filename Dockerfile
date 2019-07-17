@@ -11,7 +11,7 @@ RUN printf "nameserver 8.8.8.8\nnameserver 8.8.4.4\nnameserver 114.114.114.114\n
     && apt-get update \
     && apt-get install -y --no-install-recommends curl \
     && bash nodesource_setup.sh \
-    && apt install nodejs \
+    && apt-get -y install nodejs \
     && npm cache clean --force \
     && npm install \
     && apt-get -y install $(cat requirements/deb_requirements.txt) \
