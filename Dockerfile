@@ -17,15 +17,6 @@ RUN printf "nameserver 8.8.8.8\nnameserver 8.8.4.4\nnameserver 114.114.114.114\n
     && npm install \
     && apt-get -y install $(cat requirements/deb_requirements.txt) \
     && apt-get -y -o Dpkg::Options::="--force-confmiss" install --reinstall netbase \
-    && apt-get purge -y \
-    libffi-dev \
-    aria2 \
-    xz-utils \
-    gcc \
-    python3-dev \
-    libmysqlclient-dev \
-    libjpeg8-dev \
-    libfreetype6-dev \
     && apt-get purge --auto-remove -y \
     && apt-get autoclean -y \
     && rm -rf /var/lib/apt/lists/*
@@ -36,4 +27,4 @@ RUN printf "nameserver 8.8.8.8\nnameserver 8.8.4.4\nnameserver 114.114.114.114\n
 
 EXPOSE 8080
 VOLUME /ops/crontab-vue
-CMD ["npm", "run", "serve"]
+CMD ["/usr/bin/npm", "run", "serve:no-mock"]
