@@ -10,7 +10,6 @@ RUN printf "nameserver 8.8.8.8\nnameserver 8.8.4.4\nnameserver 114.114.114.114\n
     && sed -i s@us.archive.ubuntu.com@mirrors.aliyun.com@g /etc/apt/sources.list \
     && apt-get update \
     && apt-get install -y --no-install-recommends curl \
-    && curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh \
     && bash nodesource_setup.sh \
     && apt install nodejs \
     && npm cache clean --force \
